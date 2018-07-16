@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Super Yum</string>
+    <string name="appwidget_text">Super Yum</string>
+    <string name="add_widget">Add Super Yum</string>
+    <string name="main_title">Super Yum Recipes</string>
+    <string name="recipe_title">Title</string>
+    <string name="step_title">Steps</string>
+    <string name="ingredient_title">Ingredient</string>
+    <string name="quantity_title">Quantity:</string>
+    <string name="recipe_detail_title">Recipe detail</string>
+    <string name="step_detail_title">Step detail</string>
+    <string name="text_next_step">Next</string>
+    <string name="recipe_image_description">Recipe image</string>
+    <string name="error_loading_data">Error loading data</string>
+    <string name="retry">RETRY</string>
+    <string name="widget_added_text">Ingredient\'s added to widget!</string>
+    <string name="widget_not_added_text">Some problem occurred. Try again.</string>
+    <string name="title_font">cursive</string>
+    <string name="exoplayer_position_key">Step Video Position Key</string>
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background"
+    tools:context=".activities.IngredientDetailActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginRight="@dimen/borders"
+        android:layout_marginLeft="@dimen/borders"
+        android:layout_marginBottom="@dimen/borders"
+        android:layout_marginTop="@dimen/borders">
+
+        <TextView
+            android:id="@+id/ingredient_title"
+            android:textSize="@dimen/topic_font_size"
+            android:textColor="@color/colorAccent"
+            tools:text="Title"
+            android:fontFamily="@font/caviar_dreams_bold"
+            style="@style/TextAppearance.AppCompat.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/text_margin_small"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:text="@string/quantity_title"
+                tools:text="Quantity: "
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/body_text_size"
+                android:textStyle="bold"
+                android:fontFamily="@font/josefin_sans_semi_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/ingredient_quantity"
+                android:textSize="@dimen/topic_font_size"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                tools:text="12"
+                android:fontFamily="@font/josefin_sans_regular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/ingredient_measure"
+                android:textSize="@dimen/body_text_size"
+                android:textStyle="bold"
+                android:textColor="@color/colorAccent"
+                tools:text="g"
+                android:fontFamily="@font/josefin_sans_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/line_divider"
+        android:background="@color/divider"
+        android:layout_marginStart="@dimen/borders"
+        android:layout_marginEnd="@dimen/borders"/>
+
+</LinearLayout>

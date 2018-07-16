@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:padding="12dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/widget_list_view_text_ingredient"
+        android:layout_width="wrap_content"
+        android:textColor="@color/colorPrimaryLight"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="@dimen/body_text_size"
+        android:fontFamily="@font/josefin_sans_regular"
+        tools:text="Ingredient" />
+
+    <TextView
+        android:id="@+id/widget_list_view_text_quantity"
+        android:fontFamily="@font/josefin_sans_bold"
+        android:textColor="@color/colorAccent"
+        android:textSize="@dimen/body_text_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="2.0"/>
+
+    <TextView
+        android:id="@+id/widget_list_view_text_measure"
+        style="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/colorAccent"
+        android:layout_marginLeft="@dimen/text_margin_small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="CUP" />
+
+</LinearLayout>

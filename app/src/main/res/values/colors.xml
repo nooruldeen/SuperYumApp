@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#e91e63</color>
+    <color name="colorPrimaryDark">#b0003a</color>
+    <color name="colorPrimaryLight">#f06292</color>
+    <color name="colorPrimaryPale">#fce4ec</color>
+    <color name="colorPrimaryDisabled">#cfb3bd</color>
+    <color name="colorAccent">#03a9f4</color>
+
+    <!-- card colors for widget -->
+    <color name="transparent">#00000000</color>
+    <color name="card_background">#ffffff</color>
+    <color name="card_shadow_1">#d4d4d4</color>
+    <color name="card_shadow_2">#dddddd</color>
+    <color name="card_detailing">#eee</color>
+    <color name="colorAccentLight">#4fbb66cc</color>
+    <color name="colorError">#2ba8ca</color>
+    <color name="black_69">#496968</color>
+    <color name="background">#00ffffff</color>
+    <color name="backgroundAccent">#1adc8ae6</color>
+    <color name="divider">#d2b9b9b9</color>
+</resources>

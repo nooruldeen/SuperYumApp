@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="io.bigsoft.udacity.superyum">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/cake_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/cake_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="io.bigsoft.udacity.superyum.activities.MainActivity"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="io.bigsoft.udacity.superyum.activities.RecipeDetailActivity"
+            android:label="@string/recipe_detail_title"
+            android:launchMode="singleTop"
+            android:parentActivityName="io.bigsoft.udacity.superyum.activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.bigsoft.udacity.superyum.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name="io.bigsoft.udacity.superyum.activities.IngredientDetailActivity"
+            android:label="@string/ingredient_title"
+            android:parentActivityName="io.bigsoft.udacity.superyum.activities.RecipeDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.bigsoft.udacity.superyum.activities.RecipeDetailActivity" />
+        </activity>
+        <activity
+            android:name="io.bigsoft.udacity.superyum.activities.StepDetailActivity"
+            android:label="@string/step_detail_title"
+            android:configChanges="orientation|screenSize"
+            android:parentActivityName="io.bigsoft.udacity.superyum.activities.RecipeDetailActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="io.bigsoft.udacity.superyum.activities.RecipeDetailActivity" />
+        </activity>
+
+        <receiver android:name="io.bigsoft.udacity.superyum.widget.RecipeIngredientWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/recipe_ingredient_widget_info" />
+        </receiver>
+
+        <service
+            android:name=".widget.ListWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+    </application>
+
+</manifest>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.exoplayer2.ui.SimpleExoPlayerView
+            android:id="@+id/media_player"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/no_video_text_view"
+            android:layout_marginTop="@dimen/tv_title_margin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/caviar_dreams_bold_italic"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/text_next_step"
+            android:textSize="@dimen/topic_font_size" />
+
+    </FrameLayout>
+
+    <ScrollView
+        android:id="@+id/scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/text_margin_small"
+            android:layout_marginBottom="@dimen/text_margin_small"
+            android:layout_marginRight="@dimen/text_margin_small"
+            android:layout_marginLeft="@dimen/text_margin_small"
+            android:elevation="@dimen/cardview_default_elevation">
+
+            <TextView
+                android:id="@+id/step_long_description"
+                tools:text="This is some description."
+                android:textSize="@dimen/body_text_size"
+                android:padding="@dimen/tv_body_margin"
+                android:fontFamily="@font/josefin_sans_semi_bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </android.support.v7.widget.CardView>
+
+    </ScrollView>
+
+</LinearLayout>
+

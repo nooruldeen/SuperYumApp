@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundAccent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_ingredient"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/borders"
+        android:layout_marginLeft="@dimen/borders"
+        android:layout_marginEnd="@dimen/borders"
+        android:layout_marginStart="@dimen/borders"
+        android:layout_marginTop="@dimen/borders"
+        android:layout_marginBottom="@dimen/borders"
+        app:cardCornerRadius="@dimen/corner_radius"
+        app:cardElevation="@dimen/cardview_default_elevation"
+        android:background="?android:selectableItemBackground"
+        android:stateListAnimator="@animator/lift_on_touch">
+
+        <TextView
+            android:id="@+id/ingredient_title_textView"
+            android:gravity="center"
+            android:text="@string/ingredient_title"
+            android:textColor="@color/colorAccent"
+            android:fontFamily="@font/josefin_sans_bold"
+            android:textSize="@dimen/topic_font_size"
+            android:padding="@dimen/borders"
+            android:background="?android:selectableItemBackground"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </android.support.v7.widget.CardView>
+
+</FrameLayout>

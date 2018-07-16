@@ -1,0 +1,139 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "io.bigsoft.udacity.superyum"
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 3
+        versionName "3.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+ext {
+    supportLibVersion = "27.1.1"
+    retrofitVersion = "2.4.0"
+    glideVersion = "4.7.1"
+    espressoVersion = "3.0.2"
+    daggerVersion = "2.16"
+    butterknifeVersion = "8.8.1"
+    archVersion = "1.1.1"
+    rxJavaVersion = "2.1.14"
+    rxAndroidVersion = "2.0.2"
+    runnerVersion = "1.0.2"
+    okhttp3Version = "3.9.0"
+    exoplayerVersion = "2.8.2"
+    timberVersion = "4.5.1"
+    constraintLayoutVersion = "1.1.2"
+    picassoVersion = "2.5.2"
+    gsonVersion = "2.8.0"
+    spinKitVersion = "1.1.0"
+}
+
+dependencies {
+
+    // Support Libraries
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:${supportLibVersion}"
+    implementation "com.android.support:support-v4:${supportLibVersion}"
+    implementation "com.android.support:recyclerview-v7:${supportLibVersion}"
+    implementation "com.android.support:cardview-v7:${supportLibVersion}"
+    implementation "com.android.support:preference-v7:${supportLibVersion}"
+    implementation "com.android.support:design:${supportLibVersion}"
+    implementation "com.android.support.constraint:constraint-layout:${constraintLayoutVersion}"
+    testImplementation 'junit:junit:4.12'
+
+    // Lifecycle
+    implementation "android.arch.lifecycle:runtime:${archVersion}"
+
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:${archVersion}"
+
+    // Lifecycle Annotation Compiler
+    annotationProcessor "android.arch.lifecycle:compiler:${archVersion}"
+
+    // Room database
+    implementation "android.arch.persistence.room:runtime:${archVersion}"
+
+    // Room Annotation compiler
+    annotationProcessor "android.arch.persistence.room:compiler:${archVersion}"
+
+    // Test
+    androidTestImplementation "com.android.support.test:runner:${runnerVersion}"
+    androidTestImplementation "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+
+    // Dagger
+    implementation "com.google.dagger:dagger:${daggerVersion}"
+    annotationProcessor "com.google.dagger:dagger-compiler:${daggerVersion}"
+
+    // Network
+    implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+    implementation "com.squareup.okhttp3:logging-interceptor:${okhttp3Version}"
+    implementation "com.squareup.okhttp3:okhttp:${okhttp3Version}"
+
+    // Glide - image library
+    implementation "com.github.bumptech.glide:glide:${glideVersion}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${glideVersion}"
+
+    // Picasso - image library
+    implementation 'com.squareup.okhttp:okhttp:2.5.0'
+    implementation "com.squareup.picasso:picasso:${picassoVersion}"
+
+    // Data
+    implementation "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    implementation "com.google.code.gson:gson:${gsonVersion}"
+
+    // RxJava
+    implementation "io.reactivex.rxjava2:rxandroid:${rxAndroidVersion}"
+    implementation "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+
+    // Design
+    implementation "com.github.ybq:Android-SpinKit:${spinKitVersion}"
+
+    // ButterKnife
+    implementation "com.jakewharton:butterknife:${butterknifeVersion}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${butterknifeVersion}"
+
+    // Exoplayer
+    implementation "com.google.android.exoplayer:exoplayer:${exoplayerVersion}"
+
+    // Test dependencies
+    androidTestImplementation("com.android.support.test:runner:${runnerVersion}", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestImplementation("com.android.support.test:rules:${runnerVersion}", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestImplementation("com.android.support.test.espresso:espresso-core:${espressoVersion}", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    androidTestImplementation("com.android.support.test.espresso:espresso-contrib:${espressoVersion}", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+        exclude group: 'com.android.support', module: 'design'
+        exclude group: 'com.android.support', module: 'recyclerview-v7'
+    })
+    androidTestImplementation("com.android.support.test.espresso:espresso-intents:${espressoVersion}", {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    // Jake's Logging magic
+    implementation "com.jakewharton.timber:timber:${timberVersion}"
+
+    // Testing dependencies
+    implementation "com.android.support.test.espresso:espresso-idling-resource:${espressoVersion}"
+}

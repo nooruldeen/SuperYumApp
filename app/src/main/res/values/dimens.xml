@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--
+Refer to App Widget Documentation for margin information
+http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
+    -->
+    <dimen name="widget_margin">8dp</dimen>
+    <dimen name="title_font_size">32sp</dimen>
+    <dimen name="tv_title_margin">12dp</dimen>
+    <dimen name="text_margin_small">6dp</dimen>
+    <dimen name="divider">16dp</dimen>
+    <dimen name="topic_font_size">24sp</dimen>
+    <dimen name="borders">6dp</dimen>
+    <dimen name="body_text_size">20sp</dimen>
+    <dimen name="tv_body_margin">8dp</dimen>
+    <dimen name="tv_margin_wide">20dp</dimen>
+    <dimen name="line_divider">1dp</dimen>
+    <dimen name="elevation">2dp</dimen>
+    <dimen name="corner_radius">4dp</dimen>
+
+</resources>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/parent_container"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/background">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nested_scroll_view"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_width="0dp">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:focusableInTouchMode="true"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/title_text_view"
+                    android:fontFamily="@font/josefin_sans_bold_italic"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/title_font_size"
+                    tools:text="@string/recipe_title"
+                    android:textColor="@color/black_69"
+                    android:gravity="center_horizontal"
+                    android:layout_margin="@dimen/tv_title_margin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <FrameLayout
+                    android:id="@+id/recipe_ingredient_container"
+                    android:background="@color/backgroundAccent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/divider"
+                    android:background="@color/background" />
+
+                <TextView
+                    android:id="@+id/step_title_textView"
+                    android:text="@string/step_title"
+                    android:fontFamily="@font/caviar_dreams_italic"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/topic_font_size"
+                    android:textColor="@color/colorPrimary"
+                    android:gravity="center_horizontal"
+                    android:layout_margin="@dimen/text_margin_small"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <FrameLayout
+                    android:id="@+id/recipe_step_container"
+                    android:layout_width="match_parent"
+                    android:padding="@dimen/tv_title_margin"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+        <FrameLayout
+            android:id="@+id/detail_container"
+            android:layout_weight="1.68"
+            android:layout_width="0dp"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</FrameLayout>
