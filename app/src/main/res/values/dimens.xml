@@ -18,5 +18,10 @@ http://developer.android.com/guide/topics/appwidgets/index.html#CreatingLayout
     <dimen name="line_divider">1dp</dimen>
     <dimen name="elevation">2dp</dimen>
     <dimen name="corner_radius">4dp</dimen>
+    <dimen name="exo_button_width">100dp</dimen>
+    <dimen name="exo_button_height">100dp</dimen>
+    <dimen name="exo_time_bar_height">26dp</dimen>
+    <dimen name="square_button_frame">32dp</dimen>
+    <dimen name="square_button">18dp</dimen>
 
 </resources>

@@ -19,4 +19,6 @@
     <color name="background">#00ffffff</color>
     <color name="backgroundAccent">#1adc8ae6</color>
     <color name="divider">#d2b9b9b9</color>
+    <color name="black_background">#CC000000</color>
+    <color name="line_grey">#FFBEBEBE</color>
 </resources>
