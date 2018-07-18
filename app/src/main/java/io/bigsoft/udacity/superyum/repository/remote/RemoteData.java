@@ -55,7 +55,7 @@ public class RemoteData {
 
                         // When you are off of the main thread and want to update LiveData, use postValue.
                         // It posts the update to the main thread.
-                        mLoadedRecipes.postValue(recipes);
+                        mLoadedRecipes.setValue(recipes);
                         mStatus = true;
                         Log.d(LOG_TAG, "ApiResponse: JSON Parsing finished: - Loaded Recipes: " + mLoadedRecipes.getValue().size());
                     }
