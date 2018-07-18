@@ -10,7 +10,7 @@ import java.util.List;
 import io.bigsoft.udacity.superyum.AppExecutors;
 import io.bigsoft.udacity.superyum.model.IngredientsModel;
 import io.bigsoft.udacity.superyum.model.RecipeModel;
-import io.bigsoft.udacity.superyum.repository.assets.RecipeData;
+import io.bigsoft.udacity.superyum.repository.remote.RemoteData;
 import io.bigsoft.udacity.superyum.repository.database.DbDao;
 
 public class RecipesRepository {
@@ -18,7 +18,7 @@ public class RecipesRepository {
     // For Singleton instantiation
     private static final Object LOCK = new Object();
 
-    private RecipeData recipeData;
+    private RemoteData recipeData;
     private DbDao superYumDao;
     private final AppExecutors mExecutors;
     private final Context mContext;
@@ -73,7 +73,7 @@ public class RecipesRepository {
 
             @NonNull @Override
             protected LiveData<List<RecipeModel>> loadFromAssets() {
-                recipeData = new RecipeData(mContext);
+                recipeData = new RemoteData(mContext);
                 return recipeData.getLoadedRecipes();
             }
         }.getAsLiveData();
