@@ -69,34 +69,6 @@ public class RemoteData {
         } catch (Exception e){
             e.printStackTrace();
         }
-
-//        String json = null;
-//        try {
-//            Gson gson = new GsonBuilder().create();
-//            InputStream is = context.getAssets().open("baking.json");
-//            int size = is.available();
-//            byte[] buffer = new byte[size];
-//            is.read(buffer);
-//            is.close();
-//            json = new String(buffer, "UTF-8");
-//            Type listType = new TypeToken<List<RecipeModel>>() {
-//            }.getType();
-//            List<RecipeModel> recipes = gson.fromJson(json, listType);
-//
-//            Log.d(LOG_TAG, "JSON Parsing finished: " + json.length() + " Recipes: " + recipes.size());
-//
-//            if (recipes.size() != 0) {
-//
-//                // When you are off of the main thread and want to update LiveData, use postValue.
-//                // It posts the update to the main thread.
-//                mLoadedRecipes.postValue(recipes);
-//                mStatus = true;
-//                Log.d(LOG_TAG, "JSON Parsing finished: " + json.length() + " Recipes: " + recipes.size());
-//            }
-//        } catch (Exception e) {
-//            // Server probably invalid
-//            e.printStackTrace();
-//        }
     }
 
     public boolean isSuccess(){

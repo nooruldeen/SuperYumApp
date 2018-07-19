@@ -3,6 +3,7 @@ package io.bigsoft.udacity.superyum.widget;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -25,36 +26,26 @@ public class RecipeIngredientWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onUpdate(Context context, AppWidgetManager appWidgetManager, int[] appWidgetIds) {
-        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
-        String recipeName;
         for (int appWidgetId : appWidgetIds) {
-            recipeName = pref.getString("recipe_title", "");
-            updateAppWidget(context, appWidgetManager, recipeName, appWidgetId);
+            updateAppWidget(context, appWidgetManager, appWidgetId);
         }
     }
 
-    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager, String recipeName, int appWidgetId) {
+    static void updateAppWidget(Context context, AppWidgetManager appWidgetManager, int appWidgetId) {
 
-
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
+        String recipeName;
+        recipeName = pref.getString("recipe_title", "");
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.recipe_ingredient_widget);
         views.setTextViewText(R.id.appwidget_text, recipeName);
 
         Intent remoteAdapter = new Intent(context, ListWidgetService.class);
-        views.setRemoteAdapter(R.id.widget_list_view, remoteAdapter);
+        if (true) {views.setRemoteAdapter(R.id.widget_list_view, remoteAdapter);}
         Intent intent = new Intent(context, MainActivity.class);
         PendingIntent pendingIntent = PendingIntent.getActivity(context, 0, intent, 0);
         views.setOnClickPendingIntent(R.id.ll_recipe_widget, pendingIntent);
 
         appWidgetManager.updateAppWidget(appWidgetId, views);
-    }
-
-    public static void updateIngredientWidgets(Context context, AppWidgetManager appWidgetManager, String recipeName, int[] appWidgetIds) {
-        SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(context).edit();
-        editor.putString("recipe_title", recipeName);
-        for (int appWidgetId : appWidgetIds) {
-            editor.commit();
-            updateAppWidget(context, appWidgetManager, recipeName, appWidgetId);
-        }
     }
 
     @Override
@@ -72,12 +63,12 @@ public class RecipeIngredientWidgetProvider extends AppWidgetProvider {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        super.onReceive(context, intent);
 
-        mViews = new RemoteViews(context.getPackageName(), R.layout.recipe_ingredient_widget);
-        Intent launchActivity = new Intent(context, MainActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context,0, launchActivity, 0);
-        mViews.setOnClickPendingIntent(R.id.widget_list_view, pendingIntent);
+        ComponentName bakingAppWidget = new ComponentName(context.getPackageName(), RecipeIngredientWidgetProvider.class.getName());
+        int[] appWidgetIds = AppWidgetManager.getInstance(context).getAppWidgetIds(bakingAppWidget);
+        onUpdate(context, AppWidgetManager.getInstance(context), appWidgetIds);
+
+        super.onReceive(context, intent);
 
         Log.d(TAG, "onReceive(): Set on click pending intent action");
 

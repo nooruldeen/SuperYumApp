@@ -14,6 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name="io.bigsoft.udacity.superyum.activities.MainActivity"
+            android:configChanges="orientation|screenSize"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,6 +26,7 @@
             android:name="io.bigsoft.udacity.superyum.activities.RecipeDetailActivity"
             android:label="@string/recipe_detail_title"
             android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName="io.bigsoft.udacity.superyum.activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -33,6 +35,7 @@
         <activity
             android:name="io.bigsoft.udacity.superyum.activities.IngredientDetailActivity"
             android:label="@string/ingredient_title"
+            android:configChanges="orientation|screenSize"
             android:parentActivityName="io.bigsoft.udacity.superyum.activities.RecipeDetailActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

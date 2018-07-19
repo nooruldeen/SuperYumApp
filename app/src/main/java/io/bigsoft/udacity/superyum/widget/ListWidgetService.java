@@ -6,6 +6,7 @@ import android.util.Log;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.bigsoft.udacity.superyum.R;
@@ -19,8 +20,12 @@ import io.bigsoft.udacity.superyum.utils.InjectorUtils;
  */
 public class ListWidgetService extends RemoteViewsService {
 
+    private static final String TAG = ListWidgetService.class.getSimpleName();
+
     @Override
     public RemoteViewsFactory onGetViewFactory(Intent intent) {
+
+        Log.d(TAG, "1st Step: onGetViewFactory");
 
         return new ListRemoteViewsFactory(getApplicationContext());
     }
@@ -41,10 +46,13 @@ class ListRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
     public ListRemoteViewsFactory(Context context) {
         mContext = context;
         mRepository = InjectorUtils.provideRepository(context);
+        ingredientsModelList = new ArrayList<>();
     }
 
     @Override
     public void onCreate() {
+
+        Log.d(TAG, "2nd Step: onCreate");
 
     }
 
@@ -64,6 +72,7 @@ class ListRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
     @Override
     public int getCount() {
+
         if (ingredientsModelList == null) return 0;
         Log.d(TAG, "getCount: ingredient list has: " + ingredientsModelList.size());
         return ingredientsModelList.size();
@@ -71,11 +80,14 @@ class ListRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
     @Override
     public RemoteViews getViewAt(int i) {
+        Log.d(TAG, "4th Step: getViewAt");
         RemoteViews remoteViews = new RemoteViews(mContext.getPackageName(), R.layout.widget_list_view_item);
-        remoteViews.setTextViewText(R.id.widget_list_view_text_ingredient, ingredientsModelList.get(i).getIngredient());
-        remoteViews.setTextViewText(R.id.widget_list_view_text_measure, ingredientsModelList.get(i).getMeasure());
-        remoteViews.setTextViewText(R.id.widget_list_view_text_quantity, ingredientsModelList.get(i).getQuantity() + "");
-        Log.d(TAG, "getViewAt: ingredient position: " + i + ingredientsModelList.get(i).getIngredient());
+        if(ingredientsModelList != null){
+            remoteViews.setTextViewText(R.id.widget_list_view_text_ingredient, ingredientsModelList.get(i).getIngredient());
+            remoteViews.setTextViewText(R.id.widget_list_view_text_measure, ingredientsModelList.get(i).getMeasure());
+            remoteViews.setTextViewText(R.id.widget_list_view_text_quantity, ingredientsModelList.get(i).getQuantity() + "");
+            Log.d(TAG, "getViewAt: ingredient position: " + i + ingredientsModelList.get(i).getIngredient());
+        }
         return remoteViews;
     }
 
@@ -86,6 +98,7 @@ class ListRemoteViewsFactory implements RemoteViewsService.RemoteViewsFactory {
 
     @Override
     public int getViewTypeCount() {
+        Log.d(TAG, "3rd Step: getViewTypeCount");
         return 1;
     }
 

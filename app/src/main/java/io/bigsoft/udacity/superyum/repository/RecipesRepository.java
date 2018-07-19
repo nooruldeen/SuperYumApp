@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.bigsoft.udacity.superyum.AppExecutors;
@@ -42,6 +43,9 @@ public class RecipesRepository {
 
     public List<IngredientsModel> getFavorite() {
         RecipeModel recipeModel = superYumDao.getFavorite();
+        if (recipeModel == null){
+            return new ArrayList<>();
+        }
 
         return recipeModel.getIngredients();
     }

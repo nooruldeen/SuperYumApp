@@ -3,6 +3,8 @@ package io.bigsoft.udacity.superyum.activities;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -173,10 +175,12 @@ public class RecipeDetailActivity extends AppCompatActivity
             int favoriteId = recipeModel.getId();
             mRepository.setFavorite(favoriteId);
 
-            AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(this);
-            int[] appWidgetIds = appWidgetManager.getAppWidgetIds(new ComponentName(this, RecipeIngredientWidgetProvider.class));
+            SharedPreferences.Editor editor = PreferenceManager.getDefaultSharedPreferences(this).edit();
+            editor.putString("recipe_title", recipeModel.getName());
+            editor.commit();
 
-            RecipeIngredientWidgetProvider.updateIngredientWidgets(parentContainer.getContext(),appWidgetManager, recipeModel.getName(),appWidgetIds);
+            Intent intent = new Intent(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
+            sendBroadcast(intent);
 
             Toast.makeText(parentContainer.getContext(), recipeModel.getName() + " was set as favorite recipe to Super Yum widget!", Toast.LENGTH_LONG).show();
 
